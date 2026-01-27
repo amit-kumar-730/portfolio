@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #020617;
+  color: #e2e8f0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glassmorphism Card - Cyber Style */
+.glass {
+  background-color: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(139, 92, 246, 0.1);
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.glass-hover {
+  background-color: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(139, 92, 246, 0.1);
+  border-radius: 1rem;
+  transition: all 0.3s;
+}
+
+.glass-hover:hover {
+  background-color: rgba(139, 92, 246, 0.1);
+  border-color: rgba(139, 92, 246, 0.3);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+}
+
+/* Gradient Text - Gamified */
+.gradient-text {
+  background: linear-gradient(to right, #c084fc, #ec4899, #22d3ee);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 2em rgba(168, 85, 247, 0.2));
+}
+
+/* Custom Buttons */
+.btn-primary {
+  padding: 1rem 2rem;
+  background: linear-gradient(to right, #7c3aed, #db2777);
+  color: white;
+  font-weight: 700;
+  font-family: 'Space Grotesk', sans-serif;
+  border-radius: 0.75rem;
+  transition: all 0.3s;
+  border: 1px solid rgba(255,255,255,0.1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: 0.5s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 30px rgba(124, 58, 237, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  padding: 1rem 2rem;
+  background-color: rgba(30, 41, 59, 0.5);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 0.75rem;
+  color: #e2e8f0;
+  font-weight: 600;
+  font-family: 'Space Grotesk', sans-serif;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(30, 41, 59, 0.8);
+  border-color: #38bdf8;
+  color: #38bdf8;
+  transform: translateY(-2px);
+}
+
+/* Section Styling - Standardized */
+.section-padding {
+  padding: 4rem 1.5rem; /* Mobile */
+}
+
+@media (min-width: 640px) {
+  .section-padding {
+    padding: 5rem 2rem; /* Tablet */
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding: 6rem 3rem; /* Desktop */
+  }
+}
+
+/* Container Styling - Consistent Widths */
+.container-custom {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-custom {
+    max-width: 768px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    max-width: 1024px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-custom {
+    max-width: 1280px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Glow Effect */
+.glow-primary {
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+}
+
+/* Glitch Effect */
+.glitch-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch {
+  position: relative;
+  color: white;
+  z-index: 1;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -1px 0 #ff00c1;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -1px 0 #00fff9;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% { clip: rect(30px, 9999px, 10px, 0); }
+  5% { clip: rect(68px, 9999px, 88px, 0); }
+  10% { clip: rect(26px, 9999px, 97px, 0); }
+  15% { clip: rect(13px, 9999px, 49px, 0); }
+  20% { clip: rect(69px, 9999px, 90px, 0); }
+  25% { clip: rect(87px, 9999px, 7px, 0); }
+  30% { clip: rect(10px, 9999px, 83px, 0); }
+  35% { clip: rect(98px, 9999px, 20px, 0); }
+  40% { clip: rect(44px, 9999px, 27px, 0); }
+  45% { clip: rect(21px, 9999px, 12px, 0); }
+  50% { clip: rect(91px, 9999px, 71px, 0); }
+  55% { clip: rect(36px, 9999px, 24px, 0); }
+  60% { clip: rect(51px, 9999px, 39px, 0); }
+  65% { clip: rect(14px, 9999px, 9px, 0); }
+  70% { clip: rect(32px, 9999px, 63px, 0); }
+  75% { clip: rect(49px, 9999px, 100px, 0); }
+  80% { clip: rect(96px, 9999px, 32px, 0); }
+  85% { clip: rect(11px, 9999px, 70px, 0); }
+  90% { clip: rect(74px, 9999px, 39px, 0); }
+  95% { clip: rect(67px, 9999px, 23px, 0); }
+  100% { clip: rect(78px, 9999px, 95px, 0); }
+}
+
+@keyframes glitch-anim2 {
+  0% { clip: rect(65px, 9999px, 100px, 0); }
+  5% { clip: rect(52px, 9999px, 74px, 0); }
+  10% { clip: rect(79px, 9999px, 85px, 0); }
+  15% { clip: rect(75px, 9999px, 5px, 0); }
+  20% { clip: rect(67px, 9999px, 61px, 0); }
+  25% { clip: rect(14px, 9999px, 79px, 0); }
+  30% { clip: rect(1px, 9999px, 66px, 0); }
+  35% { clip: rect(86px, 9999px, 30px, 0); }
+  40% { clip: rect(23px, 9999px, 98px, 0); }
+  45% { clip: rect(85px, 9999px, 72px, 0); }
+  50% { clip: rect(71px, 9999px, 75px, 0); }
+  55% { clip: rect(2px, 9999px, 48px, 0); }
+  60% { clip: rect(30px, 9999px, 16px, 0); }
+  65% { clip: rect(59px, 9999px, 50px, 0); }
+  70% { clip: rect(41px, 9999px, 62px, 0); }
+  75% { clip: rect(2px, 9999px, 82px, 0); }
+  80% { clip: rect(47px, 9999px, 73px, 0); }
+  85% { clip: rect(3px, 9999px, 27px, 0); }
+  90% { clip: rect(26px, 9999px, 55px, 0); }
+  95% { clip: rect(42px, 9999px, 97px, 0); }
+  100% { clip: rect(38px, 9999px, 49px, 0); }
+}
+
+/* Text Utilities */
+.text-dark-text {
+  color: #e2e8f0;
+}
+
+.text-dark-muted {
+  color: #94a3b8;
+}
+
+.bg-dark-bg {
+  background-color: #020617;
+}
+
+.bg-dark-card {
+  background-color: #0f172a;
+}
+
+.text-primary-400 {
+  color: #a78bfa;
+}
+
+.text-primary-500 {
+  color: #8b5cf6;
+}
+
+.bg-primary-500 {
+  background-color: #8b5cf6;
+}
+
+.border-primary-500 {
+  border-color: #8b5cf6;
+}
