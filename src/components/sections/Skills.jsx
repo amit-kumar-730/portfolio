@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { skills } from '../../data/skills.js';
 import { FaLaptopCode, FaServer, FaDatabase, FaBrain, FaTools, FaCode } from 'react-icons/fa';
-import { SiReact, SiNodedotjs, SiMongodb, SiPython, SiDocker, SiOpenai } from 'react-icons/si';
 import TiltCard from '../ui/TiltCard';
 
 // Map Categories to Icons

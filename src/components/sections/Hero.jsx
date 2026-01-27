@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { ArrowDown, Download, Mail, Github, Linkedin, Twitter, Code2, ExternalLink, Gamepad2, Trophy, Zap } from 'lucide-react';
+import { ArrowDown, Download, Github, Linkedin, Twitter, Code2, ExternalLink, Gamepad2, Trophy, Zap } from 'lucide-react';
 import { personalInfo, techStack, socialLinks } from '../../data/personal.js';
 
 const TextLoop = ({ items }) => {
@@ -41,7 +41,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative bg-dark-bg pt-20 lg:pt-0 overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center relative pt-20 lg:pt-0 overflow-hidden">
       
       {/* Cyber Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

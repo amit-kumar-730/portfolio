@@ -45,24 +45,28 @@ const About = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Text Content */}
             <motion.div
+              className="relative p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-cyber-cyan/30 transition-colors group overflow-hidden"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <h3 className="text-2xl font-bold mb-4 text-white">
+              {/* Scanline Effect */}
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyber-cyan/5 to-transparent h-[20%] w-full animate-scan pointer-events-none" />
+
+              <h3 className="text-2xl font-bold mb-4 text-white relative z-10">
                 Full Stack Developer & AI Enthusiast
               </h3>
-              <p className="text-dark-muted leading-relaxed mb-6">
+              <p className="text-dark-muted leading-relaxed mb-6 relative z-10">
                 {personalInfo.bio}
               </p>
-              <p className="text-dark-muted leading-relaxed mb-6">
+              <p className="text-dark-muted leading-relaxed mb-6 relative z-10">
                 I specialize in developing end-to-end applications with a focus on AI integration,
                 performance optimization, and delivering maintainable, scalable code. My expertise
                 spans from building RESTful APIs and implementing RAG pipelines to leading development
                 teams and mentoring junior developers.
               </p>
-              <p className="text-dark-muted leading-relaxed">
+              <p className="text-dark-muted leading-relaxed relative z-10">
                 Currently pursuing Bachelor of Computer Applications at Kaashi Institute of Technology,
                 I've already made my mark by winning Smart India Hackathon 2025 and solving 300+ DSA problems.
               </p>

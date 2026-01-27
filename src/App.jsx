@@ -9,12 +9,17 @@ import Achievements from './components/sections/Achievements';
 import Contact from './components/sections/Contact';
 
 import CustomCursor from './components/ui/CustomCursor';
+import CyberBackground from './components/ui/CyberBackground';
+import ScrollProgress from './components/ui/ScrollProgress';
 
 function App() {
   return (
     <HelmetProvider>
-      <div className="min-h-screen bg-dark-bg cursor-none"> {/* Hide default cursor */}
+      <div className="min-h-screen cursor-none relative text-dark-text"> {/* Hide default cursor, removed bg-dark-bg */}
+        <ScrollProgress />
         <CustomCursor />
+        <CyberBackground />
+        
         <Helmet>
           <title>Amit Kumar - Full Stack Developer | AI & GenAI Enthusiast</title>
           <meta
@@ -45,7 +50,7 @@ function App() {
 
         <Header />
         
-        <main>
+        <main className="relative z-10">
           <Hero />
           <About />
           <Skills />
