@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { skills } from '../../data/skills.js';
-import { FaLaptopCode, FaServer, FaDatabase, FaBrain, FaTools, FaCode } from 'react-icons/fa';
+import { FaLaptopCode, FaServer, FaDatabase, FaBrain, FaTools, FaCode, FaReact, FaDocker, FaAws, FaBolt, FaRobot, FaVideo, FaLayerGroup, FaPaperPlane, FaTerminal, FaGoogle, FaGithub, FaGitAlt } from 'react-icons/fa';
 import TiltCard from '../ui/TiltCard';
 
 // Map Categories to Icons
@@ -31,6 +31,28 @@ const categoryGradientMap = {
   programming: "from-pink-400 to-rose-500",
   tools: "from-orange-400 to-red-500"
 };
+
+// Tech Stack Configuration
+const techLoadout = [
+  { name: "MERN Stack", icon: FaReact, color: "cyan-400" }, 
+  { name: "Next.js", icon: FaCode, color: "slate-200" },
+  { name: "FastAPI", icon: FaBolt, color: "teal-400" },
+  { name: "PostgreSQL", icon: FaDatabase, color: "blue-400" },
+  { name: "Redis", icon: FaLayerGroup, color: "red-500" },
+  { name: "Docker", icon: FaDocker, color: "blue-500" },
+  { name: "AWS", icon: FaAws, color: "orange-500" },
+  { name: "LangChain", icon: FaBrain, color: "emerald-400" },
+  { name: "OpenAI API", icon: FaRobot, color: "green-400" },
+  { name: "Hugging Face", icon: FaBrain, color: "yellow-400" },
+  { name: "Vector DBs", icon: FaDatabase, color: "purple-400" },
+  { name: "WebRTC", icon: FaVideo, color: "pink-500" },
+  { name: "VS Code", icon: FaTerminal, color: "blue-400" },
+  { name: "Postman", icon: FaPaperPlane, color: "orange-600" },
+  { name: "Git", icon: FaGitAlt, color: "red-600" },
+  { name: "GitHub", icon: FaGithub, color: "slate-300" },
+  { name: "Google Gemini", icon: FaGoogle, color: "sky-400" },
+  { name: "ChatGPT", icon: FaRobot, color: "teal-500" }
+];
 
 const SkillChip = ({ name, level, delay, gradientColor }) => {
   return (
@@ -84,10 +106,12 @@ const Skills = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold font-display mb-6">
-              <span className="text-white">Player</span> <span className="gradient-text">Stats</span>
+            <h2 className="text-4xl md:text-5xl font-bold font-display mb-6"
+            style={{paddingBottom: '10px'}}>
+              <span className="text-white">My</span> <span className="gradient-text">Skills</span>
             </h2>
-            <p className="text-dark-muted text-lg max-w-2xl mx-auto font-mono">
+            <p className="text-dark-muted text-lg max-w-2xl mx-auto font-mono"
+            style={{paddingBottom: '5px', marginLeft: '-55px'}}>
               Current attribute distribution and skill tree mastery.
             </p>
           </div>
@@ -99,14 +123,14 @@ const Skills = () => {
               const gradientClass = categoryGradientMap[key] || "from-primary-400 to-blue-600";
               
 
-
               return (
                 <TiltCard
                   key={key}
                   className="h-full"
                 >
                   <motion.div
-                    className="glass p-8 md:p-10 rounded-2xl border border-white/5 hover:border-primary-500/30 transition-all duration-300 h-full flex flex-col relative overflow-hidden group hover:shadow-[0_0_30px_rgba(139,92,246,0.1)]"
+                    style={{ padding: '5px' }} // FORCE PADDING RESTORED
+                    className="glass rounded-2xl border border-white/5 hover:border-primary-500/30 transition-all duration-300 h-full flex flex-col relative overflow-hidden group hover:shadow-[0_0_30px_rgba(139,92,246,0.1)]"
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
@@ -155,31 +179,40 @@ const Skills = () => {
 
           {/* Loadout (Tech Stack) */}
           <motion.div
-            className="mt-20 flex flex-col items-center"
+            className="mt-20 py-12 flex flex-col items-center"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <p className="text-sm font-bold font-mono uppercase tracking-[0.2em] text-cyber-cyan mb-8 flex items-center gap-2">
-              <FaTools /> Equipped Loadout
-            </p>
-            <div className="flex flex-wrap justify-center gap-3 max-w-4xl">
-              {[
-                "MERN Stack", "Next.js", "FastAPI", "PostgreSQL", 
-                "Redis", "Docker", "AWS", "LangChain", 
-                "OpenAI API", "Hugging Face", "Vector Databases", "WebRTC"
-              ].map((tech, index) => (
+            {/* Highlighted Banner */}
+            <div className="mb-10 relative group inline-block "
+            style={{padding: '10px'}}>
+              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg blur opacity-10 group-hover:opacity-75 transition duration-1000 group-hover:duration-200" />
+              <div className="relative px-8 py-4 bg-dark-bg/90 rounded-lg border border-cyan-500/30 shadow-[0_0_15px_rgba(6,182,212,0.2)] flex items-center gap-3 backdrop-blur-md"
+              style={{padding: '5px'}}>
+                <FaTools className="text-cyan-400 w-5 h-5 animate-pulse" />
+                <span className="text-lg font-bold font-display uppercase tracking-[0.2em] text-cyan-100 text-shadow-sm">
+                  Equipped Loadout
+                </span>
+              </div>
+            </div>
+            <div className="flex flex-wrap justify-center gap-5 max-w-5xl">
+              {techLoadout.map((tech, index) => (
                 <motion.span
-                  key={tech}
-                  className="px-5 py-2.5 rounded-lg glass border border-white/10 text-sm font-bold font-display text-white/80 hover:text-cyber-green hover:border-cyber-green/50 hover:bg-cyber-green/10 transition-all cursor-crosshair box-shadow-hover"
+                  key={tech.name}
+                  className={`rounded-full bg-white/5 border border-white/5 shadow-lg backdrop-blur-sm text-sm font-bold font-display flex items-center gap-3 transition-all duration-300 hover:scale-105 cursor-default group`}
+                  style={{
+                    color: `var(--color-${tech.color})`, 
+                    padding: '7px 7px' // FORCE BADGE PADDING
+                  }}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: 0.5 + index * 0.05 }}
-                  whileHover={{ scale: 1.1, rotate: index % 2 === 0 ? 1 : -1 }}
                 >
-                  {tech}
+                  <tech.icon className={`w-5 h-5 text-${tech.color}`} />
+                  <span className={`text-${tech.color} group-hover:brightness-125 transition-all`}>{tech.name}</span>
                 </motion.span>
               ))}
             </div>

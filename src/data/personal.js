@@ -5,24 +5,24 @@ export const personalInfo = {
   email: "amitkumar65777384@gmail.com",
   phone: "+91 9151128503",
   bio: `Built end-to-end MERN stack applications, developed RESTful APIs, and integrated AI automation tools (LLMs, LangChain, RAG, Cursor AI, AI Agents). Improved app performance by up to 30% and led 3-6 member teams to deliver projects ahead of schedule. Currently learning FastAPI to expand backend development capabilities.`,
-  resumeUrl: "/resume.pdf",
-  profileImage: "/profile.jpg",
+  resumeUrl: "/Amit Kumar.pdf",
+  profileImage: "/profile.jpeg",
 };
 
 export const socialLinks = {
   github: {
-    url: "https://github.com/amitsauraurv",
-    username: "amitsauraurv",
+    url: "https://github.com/amit-kumar-730",
+    username: "amit-kumar-730",
     icon: "github"
   },
   linkedin: {
-    url: "https://linkedin.com/in/amit-kumar",
-    username: "amit-kumar",
+    url: "https://www.linkedin.com/in/amit-kumar-7a247a363/",
+    username: "Amit Kumar",
     icon: "linkedin"
   },
   leetcode: {
-    url: "https://leetcode.com/amitsauraurv",
-    username: "amitsauraurv",
+    url: "https://leetcode.com/u/Amit_kumar444/",
+    username: "Amit_kumar444",
     icon: "code",
     stats: {
       solved: 300,
@@ -30,13 +30,13 @@ export const socialLinks = {
     }
   },
   gfg: {
-    url: "https://geeksforgeeks.org/user/amitsauraurv",
-    username: "amitsauraurv",
+    url: "https://www.geeksforgeeks.org/profile/charvi789",
+    username: "charvi789",
     icon: "code2"
   },
   twitter: {
-    url: "https://twitter.com/amitsauraurv",
-    username: "@amitsauraurv",
+    url: "https://x.com/AmitKumar600555",
+    username: "@AmitKumar600555",
     icon: "twitter"
   }
 };

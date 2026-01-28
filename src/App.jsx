@@ -21,7 +21,7 @@ function App() {
         <CyberBackground />
         
         <Helmet>
-          <title>Amit Kumar - Full Stack Developer | AI & GenAI Enthusiast</title>
+          <title>Amit Kumar | Full Stack Developer | SIH 2025 Winner</title>
           <meta
             name="description"
             content="Portfolio of Amit Kumar - SIH 2025 Winner, Full Stack Developer specializing in MERN, FastAPI, AI/RAG, and modern web technologies."

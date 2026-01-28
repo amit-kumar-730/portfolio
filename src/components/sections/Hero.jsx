@@ -54,11 +54,11 @@ const Hero = () => {
       </div>
 
       <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-8 items-center">
           
           {/* LEFT CONTENT (7 Columns) with Gamified Typography */}
           <motion.div 
-            className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left"
+            className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left gap-2"
             initial="hidden"
             animate="visible"
             variants={{
@@ -66,47 +66,41 @@ const Hero = () => {
               visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
             }}
           >
-            {/* Player Ready Badge */}
-            <motion.div 
-              variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
-              className="mb-8"
-            >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border-cyber-green/30 bg-cyber-green/5 shadow-[0_0_15px_rgba(34,197,94,0.1)]">
-                <span className="relative flex h-3 w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-green opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-cyber-green"></span>
-                </span>
-                <span className="text-sm font-bold font-mono text-cyber-green tracking-wide uppercase">Player Ready</span>
-              </div>
-            </motion.div>
+
 
             {/* Main Headline */}
             <motion.div variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1 } }}>
-              <h2 className="text-xl md:text-2xl font-medium font-display text-primary-400 mb-4">Hello, I'm</h2>
-              <div className="glitch-wrapper mb-6">
+              <h2 className="text-xl md:text-2xl font-medium font-display text-primary-400">Hello, I'm</h2>
+              <div className="glitch-wrapper">
                  <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-display text-white tracking-tight leading-[1.1] drop-shadow-lg glitch" data-text={personalInfo.name}>
                    {personalInfo.name}
                  </h1>
               </div>
+              <p className="text-base md:text-lg text-dark-muted max-w-lg mt-4 leading-relaxed">
+                Specializing in MERN Stack, FastAPI, and Generative AI to build scalable, user-centric applications.
+              </p>
             </motion.div>
 
             {/* Dynamic Description loop */}
             <motion.div 
               variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
-              className="text-xl md:text-3xl text-dark-muted mb-10 h-16 md:h-20 flex flex-wrap justify-center lg:justify-start gap-2 items-center"
+              className="text-xl md:text-3xl text-dark-muted min-h-0 flex flex-col justify-center lg:items-start"
             >
-              <span className="font-light font-display">Engineering</span>
-              <TextLoop items={techStack} />
+              <span className="font-light font-display ">Building Scalable AI Solutions with</span>
+              <div className="flex flex-wrap justify-center lg:justify-start gap-2 items-center">
+                {/* <span className="font-light font-display">with</span> */}
+                <TextLoop items={techStack} />
+              </div>
             </motion.div>
 
             {/* Gamified Stats Row (Achievements) */}
             <motion.div 
               variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
-              className="flex flex-wrap justify-center lg:justify-start gap-4 md:gap-8 mb-12 w-full"
+              className="flex flex-wrap justify-center lg:justify-start gap-4 md:gap-8 w-full"
             >
-              <div className="flex flex-col group cursor-default">
-                <div className="flex items-center gap-2">
-                  <Trophy className="w-5 h-5 text-yellow-400" />
+              <div className="flex flex-col group cursor-default ">
+                <div className="flex items-center gap-2 ">
+                  <Trophy className="w-5 h-5 text-yellow-400 " />
                   <span className="text-3xl md:text-4xl font-bold font-display text-white group-hover:text-yellow-400 transition-colors">300+</span>
                 </div>
                 <span className="text-xs font-mono uppercase tracking-wider text-dark-muted group-hover:text-white transition-colors">Problems Solved</span>
@@ -132,33 +126,36 @@ const Hero = () => {
             {/* CTAs */}
             <motion.div 
               variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
-              className="flex flex-wrap gap-4 justify-center lg:justify-start mb-12"
+              className="flex flex-wrap gap-5 justify-center lg:justify-start"
+              style={{padding: '5px'}}
             >
               <button
                 onClick={() => scrollToSection('projects')}
-                className="group relative px-8 py-4 bg-primary-600 rounded-xl font-bold font-display text-white overflow-hidden transition-transform active:scale-95 shadow-[0_0_20px_rgba(124,58,237,0.5)] border border-white/20"
+                style={{ padding: '7px 10px' }} // CUSTOM SWEET SPOT
+                className="group relative bg-primary-600 rounded-xl font-bold font-display text-white overflow-hidden transition-transform active:scale-95 shadow-[0_0_20px_rgba(124,58,237,0.5)] border border-white/20"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-100 transition-opacity" />
                 <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <span className="relative flex items-center gap-2 z-10">
-                  Mission: View Work <ArrowDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
+                <span className="relative flex items-center gap-3 z-10">
+                  View Projects <ArrowDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
                 </span>
               </button>
               
               <a 
                 href={personalInfo.resumeUrl}
                 download
-                className="group px-8 py-4 glass rounded-xl font-bold font-display text-white hover:bg-white/10 transition-colors flex items-center gap-2 border border-white/10 hover:border-cyber-cyan/50"
+                style={{ padding: '7px 10px' }} // CUSTOM SWEET SPOT
+                className="group glass rounded-xl font-bold font-display text-white hover:bg-white/10 transition-colors flex items-center gap-3 border border-white/10 hover:border-cyber-cyan/50"
               >
                 <Download className="w-5 h-5 group-hover:-translate-y-1 transition-transform text-cyber-cyan" />
-                Download Data
+                Download Resume
               </a>
             </motion.div>
 
             {/* Social Links */}
              <motion.div 
               variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
-              className="flex items-center gap-6"
+              className="flex items-center gap-8 "
             >
               {[
                 { icon: Github, url: socialLinks.github.url },
@@ -181,13 +178,13 @@ const Hero = () => {
 
           {/* RIGHT IMAGE (5 Columns) */}
           <motion.div 
-            className="lg:col-span-5 relative flex justify-center lg:justify-end mt-12 lg:mt-0"
+            className="lg:col-span-5 relative flex justify-center lg:justify-start mt-12 lg:mt-0"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             {/* Image Container with organic shape */}
-            <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[450px] lg:h-[450px]">
+            <div className="relative w-[220px] h-[220px] md:w-[300px] md:h-[300px] lg:w-[350px] lg:h-[350px]">
               
               {/* Back Glow - Cyber Purple */}
               <div className="absolute inset-0 bg-gradient-to-tr from-primary-600 to-cyber-pink rounded-full blur-[60px] opacity-30 animate-pulse" />

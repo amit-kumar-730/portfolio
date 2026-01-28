@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { achievements } from '../../data/achievements.js';
-import { Trophy, Code, Award, Book, Users } from 'lucide-react';
+import { Trophy, Code, Award, Book, Users, Star, Target, Zap } from 'lucide-react';
 
 const iconMap = {
   trophy: Trophy,
@@ -12,109 +12,109 @@ const iconMap = {
 
 const Achievements = () => {
   return (
-    <section id="achievements" className="section-padding">
-      <div className="container-custom">
+    <section id="achievements" className="section-padding relative overflow-hidden bg-dark-bg">
+       {/* Background Grid & Decor */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(6,182,212,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.05)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
+
+      <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-            Achievements & <span className="gradient-text">Recognition</span>
-          </h2>
-          <p className="text-center text-dark-muted mb-16 max-w-2xl mx-auto">
-            Milestones that showcase dedication, technical excellence, and continuous learning
-          </p>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold font-display mb-4"
+            style={{marginBottom: '10px'}}>
+              <span className="text-white">My</span> <span className="gradient-text">Achievement</span>
+            </h2>
+            <p className="text-dark-muted text-lg max-w-2xl mx-auto font-mono flex items-center justify-center gap-2"
+            style={{paddingBottom: '10px', marginLeft: '-110px'}}>
+              <Target className="w-4 h-4 text-cyber-cyan" />
+              <span>Mission history and trophy collection</span>
+              <Target className="w-4 h-4 text-cyber-cyan" />
+            </p>
+          </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {achievements.map((achievement, index) => {
               const Icon = iconMap[achievement.icon] || Trophy;
+              const isOngoing = achievement.date === "Ongoing";
+              const statusColor = isOngoing ? "text-yellow-400 border-yellow-400/50" : "text-green-400 border-green-400/50";
+              const statusText = isOngoing ? "ACTIVE QUEST" : "MISSION COMPLETE";
               
               return (
                 <motion.div
                   key={achievement.id}
-                  className="glass-hover p-8 group h-full flex flex-col relative overflow-hidden border border-white/10 hover:border-primary-500/50 transition-all duration-300 clickable bg-gradient-to-br from-white/5 to-transparent"
+                  className="group relative h-full bg-dark-bg/40 backdrop-blur-sm rounded-xl border border-white/10 hover:border-cyber-cyan/50 transition-all duration-300 flex flex-col overflow-hidden"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ translateY: -5, boxShadow: "0 10px 30px -10px rgba(139,92,246,0.3)" }}
+                  whileHover={{ translateY: -5, boxShadow: "0 0 20px rgba(6,182,212,0.15)" }}
                 >
-                  {/* Hover Glow Background */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${achievement.color.replace('text', 'from')}/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-
-                  {/* Header: Icon & Date */}
-                  <div className="flex justify-between items-start mb-6 relative z-10 w-full">
-                    <div className={`p-4 rounded-xl bg-dark-bg/80 border border-white/10 ${achievement.color.replace('bg-gradient-to-br', 'text')} shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                      <Icon className="w-8 h-8" />
+                  {/* Holographic Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  
+                  {/* Card Content */}
+                  <div 
+                    className="flex flex-col h-full relative z-10"
+                    style={{ padding: '8px' }}
+                  >
+                    
+                    {/* Header: Icon & Status */}
+                    <div className="flex justify-between items-start mb-6">
+                      <div className={`p-3 rounded-lg bg-dark-bg border border-white/10 ${achievement.color.replace('bg-gradient-to-br', 'text')} shadow-[0_0_10px_rgba(0,0,0,0.5)] group-hover:scale-110 transition-transform duration-300 relative`}>
+                        <div className={`absolute inset-0 blur opacity-20 ${achievement.color.replace('text', 'bg')}`} />
+                        <Icon className="w-6 h-6 relative z-10" />
+                      </div>
+                      <span className={`px-3 py-1 rounded text-[10px] font-mono font-bold border bg-dark-bg/80 backdrop-blur-md tracking-wider flex items-center gap-1.5 ${statusColor} shadow-sm`}>
+                         <span className={`w-1.5 h-1.5 rounded-full ${isOngoing ? 'animate-pulse bg-yellow-400' : 'bg-green-400'}`} />
+                         {statusText}
+                      </span>
                     </div>
-                    <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-white/5 border border-white/10 text-primary-300 whitespace-nowrap">
-                      {achievement.date}
-                    </span>
+
+                    {/* Meta Info */}
+                    <div className="mb-4">
+                       <div className="flex items-center gap-2 mb-2 text-xs font-mono text-cyber-cyan/80 tracking-widest uppercase">
+                         <span className="w-2 h-[1px] bg-cyber-cyan" />
+                         {achievement.category}
+                       </div>
+                       <h3 className="text-xl font-bold font-display text-white group-hover:text-cyber-cyan transition-colors leading-tight">
+                         {achievement.title}
+                       </h3>
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-dark-muted text-sm mb-6 flex-grow leading-relaxed">
+                      {achievement.description}
+                    </p>
+
+                    {/* XP / Loot List */}
+                    <div className="mt-auto pt-4 border-t border-white/5 relative">
+                      {/* Corner Accents */}
+                      <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/20" />
+                      <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/20" />
+
+                      <ul className="space-y-2">
+                        {achievement.details.map((detail, idx) => (
+                          <li
+                            key={idx}
+                            className="flex items-start gap-2 text-xs text-gray-400 group-hover:text-gray-200 transition-colors"
+                          >
+                            <Zap className="w-3 h-3 text-primary-500 mt-0.5 flex-shrink-0" />
+                            {detail}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-
-                  {/* Title & Category */}
-                  <div className="mb-4 relative z-10 min-h-[5rem]">
-                    <span className="text-xs font-bold text-cyber-cyan uppercase tracking-widest mb-2 block">
-                      {achievement.category}
-                    </span>
-                    <h3 className="text-xl md:text-2xl font-bold font-display text-white group-hover:text-primary-400 transition-colors leading-tight line-clamp-2">
-                      {achievement.title}
-                    </h3>
-                  </div>
-
-                  {/* Description - Fixed min-height for alignment */}
-                  <p className="text-dark-muted mb-6 flex-grow leading-relaxed relative z-10 text-sm min-h-[4rem]">
-                    {achievement.description}
-                  </p>
-
-                  {/* Details List */}
-                  <ul className="space-y-3 relative z-10 mt-auto border-t border-white/5 pt-4">
-                    {achievement.details.map((detail, idx) => (
-                      <li
-                        key={idx}
-                        className="flex items-start gap-3 text-xs text-gray-300 group-hover:text-white transition-colors"
-                      >
-                        <span className="mt-1.5 h-1 w-1 rounded-full bg-primary-500 flex-shrink-0" />
-                        {detail}
-                      </li>
-                    ))}
-                  </ul>
                 </motion.div>
               );
             })}
           </div>
 
-          {/* Stats Summary */}
-          <motion.div
-            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            {[
-              { value: "300+", label: "DSA Problems" },
-              { value: "1st", label: "SIH 2025" },
-              { value: "Top 15%", label: "LeetCode Rank" },
-              { value: "10+", label: "Projects Built" },
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                className="glass p-6 text-center"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-              >
-                <div className="text-3xl font-bold gradient-text mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-dark-muted">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
+
         </motion.div>
       </div>
     </section>
