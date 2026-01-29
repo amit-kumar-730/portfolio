@@ -1,30 +1,12 @@
 import { motion } from 'framer-motion';
-import { personalInfo } from '../../data/personal.js';
-import { Code, Rocket, Users, Zap, Trophy } from 'lucide-react';
+import { personalInfo, socialLinks } from '../../data/personal.js';
+import { Code, Rocket, Users, Zap, Trophy, Github, Linkedin, Twitter, Code2, FileCode, ExternalLink } from 'lucide-react';
+import CyberTree from '../3d/CyberTree';
+
+/* SocialLeaf removed - replaced by 3D CyberTree */
 
 const About = () => {
-  const highlights = [
-    {
-      icon: <Trophy className="w-6 h-6" />,
-      title: "Achievement Unlocked",
-      desc: "Winner - Smart India Hackathon 2025"
-    },
-    {
-      icon: <Users className="w-6 h-6" />,
-      title: "Party Leader",
-      desc: "Led 3-6 member squads to victory"
-    },
-    {
-      icon: <Zap className="w-6 h-6" />,
-      title: "Speed Buff",
-      desc: "Boosted app performance by 30%"
-    },
-    {
-      icon: <Rocket className="w-6 h-6" />,
-      title: "Tech Arsenal",
-      desc: "Mastering MERN, FastAPI & AI"
-    }
-  ];
+  /* Highlights Removed - Replaced with Social Tree */
 
   return (
     <section id="about" className="section-padding bg-dark-card/30">
@@ -95,44 +77,15 @@ const About = () => {
 
             </motion.div>
 
-            {/* Highlights Grid */}
+            {/* Real Cyber Tree Visualization */}
             <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              className="relative flex items-center justify-center h-[600px] w-[120%] -mr-[20%] -my-20"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.8 }}
             >
-              {highlights.map((item, index) => (
-                <motion.div
-                  key={index}
-                  style={{ padding: '24px' }} // FORCE PADDING
-                  className="glass border border-white/5 hover:border-cyber-cyan/50 transition-all duration-300 group relative overflow-hidden rounded-2xl hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(6,182,212,0.15)]"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 * index }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyber-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  
-                  <div className="relative z-10">
-                    <div className={`mb-4 p-3 rounded-lg inline-block transition-transform duration-300 group-hover:scale-110 ${
-                      index === 0 ? 'bg-yellow-500/10 text-yellow-400' : 
-                      index === 1 ? 'bg-purple-500/10 text-purple-400' :
-                      index === 2 ? 'bg-pink-500/10 text-pink-400' :
-                      'bg-cyber-cyan/10 text-cyber-cyan'
-                    }`}>
-                      {item.icon}
-                    </div>
-                    <h4 className="font-bold font-display text-white mb-2 text-lg group-hover:text-cyber-cyan transition-colors">
-                      {item.title}
-                    </h4>
-                    <p className="text-sm text-dark-muted group-hover:text-gray-300 transition-colors">
-                      {item.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
+               <CyberTree socialLinks={socialLinks} />
             </motion.div>
           </div>
         </motion.div>

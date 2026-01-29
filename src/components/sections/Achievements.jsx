@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { achievements } from '../../data/achievements.js';
-import { Trophy, Code, Award, Book, Users, Star, Target, Zap } from 'lucide-react';
+import { Trophy, Code, Award, Book, Users, Star, Target, Zap, ExternalLink, Image as ImageIcon } from 'lucide-react';
 
 const iconMap = {
   trophy: Trophy,
@@ -63,21 +63,21 @@ const Achievements = () => {
                   >
                     
                     {/* Header: Icon & Status */}
-                    <div className="flex justify-between items-start mb-6">
-                      <div className={`p-3 rounded-lg bg-dark-bg border border-white/10 ${achievement.color.replace('bg-gradient-to-br', 'text')} shadow-[0_0_10px_rgba(0,0,0,0.5)] group-hover:scale-110 transition-transform duration-300 relative`}>
+                    <div className="flex justify-between items-start mb-6" >
+                      <div className={`p-3 rounded-lg bg-dark-bg  ${achievement.color.replace('bg-gradient-to-br', 'text')} shadow-[0_0_10px_rgba(0,0,0,0.5)] group-hover:scale-110 transition-transform duration-300 relative`} >
                         <div className={`absolute inset-0 blur opacity-20 ${achievement.color.replace('text', 'bg')}`} />
                         <Icon className="w-6 h-6 relative z-10" />
                       </div>
-                      <span className={`px-3 py-1 rounded text-[10px] font-mono font-bold border bg-dark-bg/80 backdrop-blur-md tracking-wider flex items-center gap-1.5 ${statusColor} shadow-sm`}>
-                         <span className={`w-1.5 h-1.5 rounded-full ${isOngoing ? 'animate-pulse bg-yellow-400' : 'bg-green-400'}`} />
+                      <span className={`px-3 py-1 rounded text-[10px] font-mono font-bold border bg-dark-bg/80 backdrop-blur-md tracking-wider flex items-center gap-1.5 ${statusColor} shadow-sm`} style={{padding: '2px 4px'}} >
+                         <span className={`w-1.5 h-1.5 rounded-full ${isOngoing ? 'animate-pulse bg-yellow-400' : 'bg-green-400'}`}/>
                          {statusText}
                       </span>
                     </div>
 
                     {/* Meta Info */}
-                    <div className="mb-4">
-                       <div className="flex items-center gap-2 mb-2 text-xs font-mono text-cyber-cyan/80 tracking-widest uppercase">
-                         <span className="w-2 h-[1px] bg-cyber-cyan" />
+                    <div className="mb-4" >
+                       <div className="flex items-center gap-2 mb-2 text-xs font-mono text-cyber-cyan/80 tracking-widest uppercase" >
+                         <span className="w-2 h-[1px] bg-cyber-cyan"  style={{padding: '10px 0px 10px 15px'}}/>
                          {achievement.category}
                        </div>
                        <h3 className="text-xl font-bold font-display text-white group-hover:text-cyber-cyan transition-colors leading-tight">
@@ -86,12 +86,38 @@ const Achievements = () => {
                     </div>
 
                     {/* Description */}
-                    <p className="text-dark-muted text-sm mb-6 flex-grow leading-relaxed">
+                    <p className="text-dark-muted text-sm mb-4 flex-grow leading-relaxed">
                       {achievement.description}
                     </p>
 
+                    {/* Proof / Image */}
+                    {achievement.image && (
+                      <a 
+                        href={achievement.link || '#'}
+                        target={achievement.link ? "_blank" : "_self"}
+                        rel={achievement.link ? "noopener noreferrer" : ""}
+                        className={`mb-4 rounded-lg overflow-hidden h-32 w-full border border-white/10 group-hover:border-cyber-cyan/30 transition-colors relative group/image block ${achievement.link ? 'cursor-pointer' : 'cursor-default'}`}
+                      >
+                        <img 
+                          src={achievement.image} 
+                          alt={achievement.title} 
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                        
+                        {/* Overlay Action Button */}
+                        {achievement.link && (
+                          <div 
+                            className="absolute top-2 right-2 flex items-center gap-1.5 px-2 py-1 bg-black/60 hover:bg-cyber-cyan/90 backdrop-blur-md border border-white/20 hover:border-cyber-cyan rounded-md text-[10px] font-bold text-white transition-all opacity-0 group-hover:opacity-100 transform translate-y-[-10px] group-hover:translate-y-0 duration-300"
+                          >
+                            <ExternalLink className="w-3 h-3" />
+                            VIEW
+                          </div>
+                        )}
+                      </a>
+                    )}
+
                     {/* XP / Loot List */}
-                    <div className="mt-auto pt-4 border-t border-white/5 relative">
+                    <div className="mt-auto pt-4 border-t border-white/5 relative"  style={{padding: '10px 2px'}}>
                       {/* Corner Accents */}
                       <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/20" />
                       <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/20" />

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { ArrowDown, Download, Github, Linkedin, Twitter, Code2, ExternalLink, Gamepad2, Trophy, Zap } from 'lucide-react';
+import { ArrowDown, Download, Github, Linkedin, Twitter, Code2, ExternalLink, Gamepad2, Trophy, Zap, FileCode } from 'lucide-react';
 import { personalInfo, techStack, socialLinks } from '../../data/personal.js';
 
 const TextLoop = ({ items }) => {
@@ -153,7 +153,7 @@ const Hero = () => {
             </motion.div>
 
             {/* Social Links */}
-             <motion.div 
+              <motion.div 
               variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
               className="flex items-center gap-8 "
             >
@@ -161,7 +161,8 @@ const Hero = () => {
                 { icon: Github, url: socialLinks.github.url },
                 { icon: Linkedin, url: socialLinks.linkedin.url },
                 { icon: Twitter, url: socialLinks.twitter.url },
-                { icon: Code2, url: socialLinks.leetcode.url }
+                { icon: Code2, url: socialLinks.leetcode.url },
+                { icon: FileCode, url: socialLinks.gfg.url }
               ].map((social, idx) => (
                 <a 
                   key={idx} 

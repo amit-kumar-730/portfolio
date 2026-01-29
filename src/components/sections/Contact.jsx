@@ -67,7 +67,8 @@ const Contact = () => {
            transition={{ duration: 0.6 }}
            className="w-full flex flex-col items-center"
         >
-          <div className="text-center mb-16">
+          <div className="text-center mb-16"
+          style={{padding:"15px"}}>
             <h2 className="text-4xl md:text-5xl font-bold font-display mb-4">
               <span className="text-white">Initialize</span> <span className="gradient-text">Communication</span>
             </h2>
@@ -83,13 +84,15 @@ const Contact = () => {
             <TiltCard className="h-full w-full">
             <motion.div
               className="rounded-3xl border border-white/10 relative overflow-hidden shadow-2xl bg-[#0a0a0a]"
+              style={{padding:"8px"}}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
               {/* Terminal Title Bar */}
-              <div className="bg-[#121212] border-b border-white/10 px-6 py-4 flex items-center justify-between">
+              <div className="bg-[#121212] border-b border-white/10 px-6 py-4 flex items-center justify-between"
+               style={{padding:"5px", marginBottom: '15px'}}>
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-red-500/80 shadow-[0_0_8px_rgba(239,68,68,0.6)]" />
                   <div className="w-3 h-3 rounded-full bg-yellow-500/80 shadow-[0_0_8px_rgba(234,179,8,0.6)]" />
@@ -105,7 +108,8 @@ const Contact = () => {
                   <div className="grid md:grid-cols-2 gap-8 md:gap-10">
                     {/* Name */}
                     <div className="group relative">
-                      <label htmlFor="name" className="block text-xs font-bold font-mono text-cyber-cyan mb-3 ml-1 tracking-widest uppercase">Identity</label>
+                      <label htmlFor="name" className="block text-xs font-bold font-mono text-cyber-cyan mb-3 ml-1 tracking-widest uppercase"
+                       style={{margin:"0px 0px 3px 5px" }}>Identity</label>
                       <input
                         type="text"
                         id="name"
@@ -114,6 +118,7 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                         className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-lg text-white font-mono focus:outline-none focus:border-cyber-cyan focus:bg-cyber-cyan/5 transition-all placeholder-white/20"
+                        style={{padding:"3px 5px 3px 10px" }}
                         placeholder="ENTER NAME"
                       />
                       <div className="absolute bottom-0 left-0 h-[1px] w-0 bg-cyber-cyan group-hover:w-full transition-all duration-500" />
@@ -121,7 +126,8 @@ const Contact = () => {
 
                     {/* Mobile No */}
                     <div className="group relative">
-                      <label htmlFor="phone" className="block text-xs font-bold font-mono text-cyber-cyan mb-3 ml-1 tracking-widest uppercase">Frequency</label>
+                      <label htmlFor="phone" className="block text-xs font-bold font-mono text-cyber-cyan mb-3 ml-1 tracking-widest uppercase"
+                      style={{margin:"0px 0px 3px 5px" }}>Frequency</label>
                       <input
                         type="tel"
                         id="phone"
@@ -130,6 +136,7 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                         className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-lg text-white font-mono focus:outline-none focus:border-cyber-cyan focus:bg-cyber-cyan/5 transition-all placeholder-white/20"
+                        style={{padding:"3px 5px 3px 10px" }}
                         placeholder="+91..."
                       />
                        <div className="absolute bottom-0 left-0 h-[1px] w-0 bg-cyber-cyan group-hover:w-full transition-all duration-500" />
@@ -139,7 +146,8 @@ const Contact = () => {
                   <div className="grid md:grid-cols-2 gap-8 md:gap-10">
                     {/* Email */}
                     <div className="group relative">
-                      <label htmlFor="email" className="block text-xs font-bold font-mono text-cyber-cyan mb-3 ml-1 tracking-widest uppercase">Digital Coordinates</label>
+                      <label htmlFor="email" className="block text-xs font-bold font-mono text-cyber-cyan mb-3 ml-1 tracking-widest uppercase"
+                      style={{margin:"12px 0px 3px 5px" }}>Digital Coordinates</label>
                       <input
                         type="email"
                         id="email"
@@ -148,6 +156,7 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                          className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-lg text-white font-mono focus:outline-none focus:border-cyber-cyan focus:bg-cyber-cyan/5 transition-all placeholder-white/20"
+                         style={{padding:"3px 5px 3px 10px" }}
                         placeholder="USER@EXAMPLE.COM"
                       />
                        <div className="absolute bottom-0 left-0 h-[1px] w-0 bg-cyber-cyan group-hover:w-full transition-all duration-500" />
@@ -155,7 +164,8 @@ const Contact = () => {
                     
                     {/* Subject */}
                     <div className="group relative">
-                      <label htmlFor="subject" className="block text-xs font-bold font-mono text-cyber-cyan mb-3 ml-1 tracking-widest uppercase">Subject Protocol</label>
+                      <label htmlFor="subject" className="block text-xs font-bold font-mono text-cyber-cyan mb-3 ml-1 tracking-widest uppercase"
+                      style={{margin:"12px 0px 3px 5px" }}>Subject Protocol</label>
                       <input
                         type="text"
                         id="subject"
@@ -164,6 +174,7 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                          className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-lg text-white font-mono focus:outline-none focus:border-cyber-cyan focus:bg-cyber-cyan/5 transition-all placeholder-white/20"
+                         style={{padding:"3px 5px 3px 10px" }}
                         placeholder="PROJECT INQUIRY"
                       />
                        <div className="absolute bottom-0 left-0 h-[1px] w-0 bg-cyber-cyan group-hover:w-full transition-all duration-500" />
@@ -172,7 +183,8 @@ const Contact = () => {
 
                   {/* Message */}
                   <div className="group relative">
-                    <label htmlFor="message" className="block text-xs font-bold font-mono text-cyber-cyan mb-3 ml-1 tracking-widest uppercase">Transmission Data</label>
+                    <label htmlFor="message" className="block text-xs font-bold font-mono text-cyber-cyan mb-3 ml-1 tracking-widest uppercase"
+                    style={{margin:"12px 0px 3px 5px" }}>Transmission Data</label>
                     <textarea
                       id="message"
                       name="message"
@@ -181,6 +193,7 @@ const Contact = () => {
                       required
                       rows="6"
                        className="w-full px-5 py-5 bg-white/5 border border-white/10 rounded-lg text-white font-mono focus:outline-none focus:border-cyber-cyan focus:bg-cyber-cyan/5 transition-all placeholder-white/20 resize-none leading-relaxed"
+                       style={{padding:"3px 5px 3px 10px" }}
                       placeholder="INITIATE MESSAGE STREAM..."
                     />
                      <div className="absolute bottom-0 left-0 h-[1px] w-0 bg-cyber-cyan group-hover:w-full transition-all duration-500" />
@@ -191,6 +204,7 @@ const Contact = () => {
                         type="submit"
                         disabled={status === 'sending'}
                         className="btn-primary w-full md:w-auto md:px-16 py-5 flex items-center justify-center gap-3 group rounded-none skew-x-[-10deg] border border-cyber-cyan/50 hover:bg-cyber-cyan/10 transition-all shadow-[0_0_30px_rgba(139,92,246,0.2)]"
+                        style={{margin:"10px 0px" }}
                     >
                         <span className="skew-x-[10deg] flex items-center gap-3 font-bold font-display tracking-[0.2em] uppercase text-lg">
                             <Terminal className="w-5 h-5" />

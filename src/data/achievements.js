@@ -12,7 +12,73 @@ export const achievements = [
       "Competed against 1000+ teams nationwide"
     ],
     icon: "trophy",
-    color: "from-yellow-400 to-orange-500"
+    color: "from-yellow-400 to-orange-500",
+    image: "/sihWinner.jpeg",
+    link: "/sihWinner.jpeg"
+  },
+  {
+    id: "tech-exhibition",
+    title: "Tech Exhibition Winner",
+    category: "Competition",
+    date: "2024",
+    description: "Showcased innovative IoT solutions and won the best project award.",
+    details: [
+      "Demonstrated practical IoT application",
+      "Received praise for UI/UX",
+      "Secured 1st position"
+    ],
+    icon: "award",
+    color: "from-blue-400 to-cyan-500",
+    image: "/techExhibition.jpeg",
+    link: "/techExhibition.jpeg"
+  },
+  {
+    id: "centum-foundation",
+    title: "Centum Foundation Certification",
+    category: "Certification",
+    date: "2024",
+    description: "Completed intensive technical training program.",
+    details: [
+      "Advanced Soft Skills Training",
+      "Technical proficiency assessment",
+      "Industry readiness certification"
+    ],
+    icon: "book",
+    color: "from-purple-400 to-pink-500",
+    image: "/centumFoundation.jpeg",
+    link: "/centumFoundation.jpeg"
+  },
+  {
+    id: "gfg-160",
+    title: "GFG 160 Days Challenge",
+    category: "Coding",
+    date: "2024",
+    description: "Consistently solved DSA problems for 160 days.",
+    details: [
+      "Maintained 160-day streak",
+      "Mastered Graph & DP algorithms",
+      "Top percentile performance"
+    ],
+    icon: "code",
+    color: "from-green-400 to-emerald-500",
+    link: "/gfg160.pdf",
+    image: "https://media.geeksforgeeks.org/wp-content/uploads/20210101144014/gfglogo.png"
+  },
+  {
+    id: "ff-winner",
+    title: "Esports Tournament Winner",
+    category: "Gaming",
+    date: "2024",
+    description: "Winner of the regional Free Fire tournament demonstrating strategy and teamwork.",
+    details: [
+      "Team Captain",
+      "Strategic planning and execution",
+      "Won cash prize"
+    ],
+    icon: "trophy",
+    color: "from-red-400 to-orange-500",
+    image: "/ffwinner.jpeg",
+    link: "/ffwinner.jpeg"
   },
   {
     id: "dsa-streak",
@@ -27,50 +93,9 @@ export const achievements = [
       "Consistent daily practice"
     ],
     icon: "code",
-    color: "from-green-400 to-emerald-500"
-  },
-  {
-    id: "teachers-memory",
-    title: "1st Place - Teachers Memory Based CC KIT",
-    category: "Competition",
-    date: "2024",
-    description: "Won first place among 50+ participants by demonstrating leadership and technical skills",
-    details: [
-      "Led team communication",
-      "Presented innovative solutions to judges",
-      "Coordinated tasks under tight deadlines"
-    ],
-    icon: "award",
-    color: "from-blue-400 to-cyan-500"
-  },
-  {
-    id: "full-stack-cert",
-    title: "Full Stack Development Course",
-    category: "Certification",
-    date: "2024",
-    description: "Completed Oasis Infobyte Full Stack Development course, gaining hands-on MERN stack experience",
-    details: [
-      "Built 5+ full-stack projects",
-      "Mastered MERN stack",
-      "Learned industry best practices"
-    ],
-    icon: "book",
-    color: "from-purple-400 to-pink-500"
-  },
-  {
-    id: "mentorship",
-    title: "Peer Mentoring & Leadership",
-    category: "Leadership",
-    date: "Ongoing",
-    description: "Mentored 10+ junior developers and led multiple project teams",
-    details: [
-      "Guided peers in MERN stack development",
-      "Conducted code reviews",
-      "Led teams of 3-6 developers",
-      "Delivered projects ahead of schedule"
-    ],
-    icon: "users",
-    color: "from-indigo-400 to-blue-500"
+    color: "from-green-400 to-emerald-500",
+    image: "/dsaCertificateV2.png",
+    link: "/dsaCertificateV2.png"
   }
 ];
 
