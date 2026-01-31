@@ -105,13 +105,11 @@ const Skills = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold font-display mb-6"
-            style={{paddingBottom: '10px'}}>
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display mb-4 md:mb-6" style={{ paddingBottom: '10px' }}>
               <span className="text-white">My</span> <span className="gradient-text">Skills</span>
             </h2>
-            <p className="text-dark-muted text-lg max-w-2xl mx-auto font-mono"
-            style={{paddingBottom: '5px', marginLeft: '-55px'}}>
+            <p className="text-sm sm:text-base md:text-lg text-dark-muted max-w-2xl mx-auto font-mono px-4" style={{ paddingBottom: '5px', marginLeft: '-55px' }}>
               Current attribute distribution and skill tree mastery.
             </p>
           </div>
@@ -129,8 +127,8 @@ const Skills = () => {
                   className="h-full"
                 >
                   <motion.div
-                    style={{ padding: '5px' }} // FORCE PADDING RESTORED
-                    className="glass rounded-2xl border border-white/5 hover:border-primary-500/30 transition-all duration-300 h-full flex flex-col relative overflow-hidden group hover:shadow-[0_0_30px_rgba(139,92,246,0.1)]"
+                    className="glass rounded-2xl border border-white/5 hover:border-primary-500/30 transition-all duration-300 h-full flex flex-col relative overflow-hidden group hover:shadow-[0_0_30px_rgba(139,92,246,0.1)] p-4 sm:p-5 md:p-6"
+                    style={{ padding: '5px' }}
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
@@ -186,33 +184,32 @@ const Skills = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             {/* Highlighted Banner */}
-            <div className="mb-10 relative group inline-block "
-            style={{padding: '10px'}}>
+            <div className="mb-8 md:mb-10 relative group inline-block" style={{ padding: '10px' }}>
               <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg blur opacity-10 group-hover:opacity-75 transition duration-1000 group-hover:duration-200" />
-              <div className="relative px-8 py-4 bg-dark-bg/90 rounded-lg border border-cyan-500/30 shadow-[0_0_15px_rgba(6,182,212,0.2)] flex items-center gap-3 backdrop-blur-md"
-              style={{padding: '5px'}}>
-                <FaTools className="text-cyan-400 w-5 h-5 animate-pulse" />
-                <span className="text-lg font-bold font-display uppercase tracking-[0.2em] text-cyan-100 text-shadow-sm">
+              <div className="relative px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 bg-dark-bg/90 rounded-lg border border-cyan-500/30 shadow-[0_0_15px_rgba(6,182,212,0.2)] flex items-center gap-2 sm:gap-3 backdrop-blur-md" style={{ padding: '5px' }}>
+                <FaTools className="text-cyan-400 w-4 h-4 sm:w-5 sm:h-5 animate-pulse" />
+                <span className="text-sm sm:text-base md:text-lg font-bold font-display uppercase tracking-wider sm:tracking-[0.15em] md:tracking-[0.2em] text-cyan-100 text-shadow-sm">
                   Equipped Loadout
                 </span>
               </div>
             </div>
-            <div className="flex flex-wrap justify-center gap-5 max-w-5xl">
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-5 max-w-5xl px-4">
               {techLoadout.map((tech, index) => (
                 <motion.span
                   key={tech.name}
-                  className={`rounded-full bg-white/5 border border-white/5 shadow-lg backdrop-blur-sm text-sm font-bold font-display flex items-center gap-3 transition-all duration-300 hover:scale-105 cursor-default group`}
+                  className={`rounded-full bg-white/5 border border-white/5 shadow-lg backdrop-blur-sm text-xs sm:text-sm font-bold font-display flex items-center gap-2 sm:gap-3 transition-all duration-300 hover:scale-105 cursor-default group px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2`}
                   style={{
-                    color: `var(--color-${tech.color})`, 
-                    padding: '7px 7px' // FORCE BADGE PADDING
+                    color: `var(--color-${tech.color})`,
+                    padding: '7px 7px'
                   }}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: 0.5 + index * 0.05 }}
                 >
-                  <tech.icon className={`w-5 h-5 text-${tech.color}`} />
-                  <span className={`text-${tech.color} group-hover:brightness-125 transition-all`}>{tech.name}</span>
+                  <tech.icon className={`w-4 h-4 sm:w-5 sm:h-5 text-${tech.color}`} />
+                  <span className={`text-${tech.color} group-hover:brightness-125 transition-all hidden sm:inline`}>{tech.name}</span>
+                  <span className={`text-${tech.color} group-hover:brightness-125 transition-all sm:hidden text-[10px]`}>{tech.name.split(' ')[0]}</span>
                 </motion.span>
               ))}
             </div>

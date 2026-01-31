@@ -14,12 +14,12 @@ const TextLoop = ({ items }) => {
   }, [items.length]);
 
   return (
-    <div className="h-10 md:h-12 overflow-hidden inline-flex items-center align-middle ml-2 relative top-1">
+    <div className="h-8 sm:h-10 md:h-12 overflow-hidden inline-flex items-center align-middle ml-1 sm:ml-2 relative top-1">
       <div className="relative h-full w-full">
         {items.map((item, index) => (
           <motion.span
             key={item}
-            className="absolute left-0 text-3xl md:text-4xl font-extrabold font-display text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyber-pink whitespace-nowrap"
+            className="absolute left-0 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold font-display text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyber-pink whitespace-nowrap"
             initial={{ y: 50, opacity: 0 }}
             animate={{
               y: index === currentIndex ? 0 : index < currentIndex ? -50 : 50,
@@ -41,7 +41,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative pt-20 lg:pt-0 overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center relative pt-24 md:pt-20 lg:pt-0 overflow-hidden px-4" style={{ paddingLeft: '20px', paddingRight: '20px', paddingTop: '100px' }}>
       
       {/* Cyber Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -53,8 +53,8 @@ const Hero = () => {
         <div className="absolute bottom-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-cyber-pink/20 rounded-full blur-[120px] mix-blend-screen" />
       </div>
 
-      <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-8 items-center">
+      <div className="container-custom relative z-10 w-full">
+        <div className="grid lg:grid-cols-12 gap-6 md:gap-8 lg:gap-8 items-center">
           
           {/* LEFT CONTENT (7 Columns) with Gamified Typography */}
           <motion.div 
@@ -70,13 +70,13 @@ const Hero = () => {
 
             {/* Main Headline */}
             <motion.div variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1 } }}>
-              <h2 className="text-xl md:text-2xl font-medium font-display text-primary-400">Hello, I'm</h2>
+              <h2 className="text-lg sm:text-xl md:text-2xl font-medium font-display text-primary-400">Hello, I'm</h2>
               <div className="glitch-wrapper">
-                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-display text-white tracking-tight leading-[1.1] drop-shadow-lg glitch" data-text={personalInfo.name}>
+                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-display text-white tracking-tight leading-[1.1] drop-shadow-lg glitch" data-text={personalInfo.name}>
                    {personalInfo.name}
                  </h1>
               </div>
-              <p className="text-base md:text-lg text-dark-muted max-w-lg mt-4 leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg text-dark-muted max-w-lg mt-3 md:mt-4 leading-relaxed">
                 Specializing in MERN Stack, FastAPI, and Generative AI to build scalable, user-centric applications.
               </p>
             </motion.div>
@@ -84,11 +84,10 @@ const Hero = () => {
             {/* Dynamic Description loop */}
             <motion.div 
               variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
-              className="text-xl md:text-3xl text-dark-muted min-h-0 flex flex-col justify-center lg:items-start"
+              className="text-base sm:text-lg md:text-2xl lg:text-3xl text-dark-muted min-h-0 flex flex-col justify-center lg:items-start"
             >
-              <span className="font-light font-display ">Building Scalable AI Solutions with</span>
+              <span className="font-light font-display">Building Scalable AI Solutions with</span>
               <div className="flex flex-wrap justify-center lg:justify-start gap-2 items-center">
-                {/* <span className="font-light font-display">with</span> */}
                 <TextLoop items={techStack} />
               </div>
             </motion.div>
@@ -96,66 +95,64 @@ const Hero = () => {
             {/* Gamified Stats Row (Achievements) */}
             <motion.div 
               variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
-              className="flex flex-wrap justify-center lg:justify-start gap-4 md:gap-8 w-full"
+              className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 md:gap-6 lg:gap-8 w-full"
             >
-              <div className="flex flex-col group cursor-default ">
-                <div className="flex items-center gap-2 ">
-                  <Trophy className="w-5 h-5 text-yellow-400 " />
-                  <span className="text-3xl md:text-4xl font-bold font-display text-white group-hover:text-yellow-400 transition-colors">300+</span>
+              <div className="flex flex-col group cursor-default items-center lg:items-start">
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <Trophy className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400" />
+                  <span className="text-2xl sm:text-3xl md:text-4xl font-bold font-display text-white group-hover:text-yellow-400 transition-colors">300+</span>
                 </div>
-                <span className="text-xs font-mono uppercase tracking-wider text-dark-muted group-hover:text-white transition-colors">Problems Solved</span>
+                <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-dark-muted group-hover:text-white transition-colors text-center lg:text-left">Problems Solved</span>
               </div>
-              <div className="w-px h-12 bg-white/10 hidden md:block"></div>
-              <div className="flex flex-col group cursor-default">
-                <div className="flex items-center gap-2">
-                   <Gamepad2 className="w-5 h-5 text-cyber-cyan" />
-                   <span className="text-3xl md:text-4xl font-bold font-display text-white group-hover:text-cyber-cyan transition-colors">Lvl 10+</span>
+              <div className="w-px h-12 bg-white/10 hidden sm:block"></div>
+              <div className="flex flex-col group cursor-default items-center lg:items-start">
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                   <Gamepad2 className="w-4 h-4 sm:w-5 sm:h-5 text-cyber-cyan" />
+                   <span className="text-2xl sm:text-3xl md:text-4xl font-bold font-display text-white group-hover:text-cyber-cyan transition-colors">Lvl 10+</span>
                 </div>
-                <span className="text-xs font-mono uppercase tracking-wider text-dark-muted group-hover:text-white transition-colors">Projects Deployed</span>
+                <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-dark-muted group-hover:text-white transition-colors text-center lg:text-left">Projects Deployed</span>
               </div>
-              <div className="w-px h-12 bg-white/10 hidden md:block"></div>
-              <div className="flex flex-col group cursor-default">
-                <div className="flex items-center gap-2">
-                  <Zap className="w-5 h-5 text-cyber-pink" />
-                  <span className="text-3xl md:text-4xl font-bold font-display text-gradient bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-500">Winner</span>
+              <div className="w-px h-12 bg-white/10 hidden sm:block"></div>
+              <div className="flex flex-col group cursor-default items-center lg:items-start">
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-cyber-pink" />
+                  <span className="text-2xl sm:text-3xl md:text-4xl font-bold font-display text-gradient bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-orange-500">Winner</span>
                 </div>
-                <span className="text-xs font-mono uppercase tracking-wider text-dark-muted group-hover:text-white transition-colors">SIH 2025</span>
+                <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-dark-muted group-hover:text-white transition-colors text-center lg:text-left">SIH 2025</span>
               </div>
             </motion.div>
 
             {/* CTAs */}
             <motion.div 
               variants={{ hidden: { y: 30, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
-              className="flex flex-wrap gap-5 justify-center lg:justify-start"
-              style={{padding: '5px'}}
+              className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 md:gap-5 justify-center lg:justify-start w-full sm:w-auto"
             >
               <button
                 onClick={() => scrollToSection('projects')}
-                style={{ padding: '7px 10px' }} // CUSTOM SWEET SPOT
-                className="group relative bg-primary-600 rounded-xl font-bold font-display text-white overflow-hidden transition-transform active:scale-95 shadow-[0_0_20px_rgba(124,58,237,0.5)] border border-white/20"
+                className="group relative bg-primary-600 rounded-xl font-bold font-display text-white overflow-hidden transition-transform active:scale-95 shadow-[0_0_20px_rgba(124,58,237,0.5)] border border-white/20 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 text-sm sm:text-base"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-100 transition-opacity" />
                 <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <span className="relative flex items-center gap-3 z-10">
-                  View Projects <ArrowDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
+                <span className="relative flex items-center justify-center gap-2 sm:gap-3 z-10">
+                  View Projects <ArrowDown className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-y-1 transition-transform" />
                 </span>
               </button>
               
               <a 
                 href={personalInfo.resumeUrl}
                 download
-                style={{ padding: '7px 10px' }} // CUSTOM SWEET SPOT
-                className="group glass rounded-xl font-bold font-display text-white hover:bg-white/10 transition-colors flex items-center gap-3 border border-white/10 hover:border-cyber-cyan/50"
+                className="group glass rounded-xl font-bold font-display text-white hover:bg-white/10 transition-colors flex items-center justify-center gap-2 sm:gap-3 border border-white/10 hover:border-cyber-cyan/50 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 text-sm sm:text-base"
               >
-                <Download className="w-5 h-5 group-hover:-translate-y-1 transition-transform text-cyber-cyan" />
-                Download Resume
+                <Download className="w-4 h-4 sm:w-5 sm:h-5 group-hover:-translate-y-1 transition-transform text-cyber-cyan" />
+                <span className="hidden sm:inline">Download Resume</span>
+                <span className="sm:hidden">Resume</span>
               </a>
             </motion.div>
 
             {/* Social Links */}
               <motion.div 
               variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
-              className="flex items-center gap-8 "
+              className="flex items-center gap-4 sm:gap-6 md:gap-8"
             >
               {[
                 { icon: Github, url: socialLinks.github.url },
@@ -171,7 +168,7 @@ const Hero = () => {
                   rel="noopener noreferrer"
                   className="text-dark-muted hover:text-primary-400 transition-colors hover:scale-110 transform duration-200 hover:drop-shadow-[0_0_8px_rgba(167,139,250,0.8)]"
                 >
-                  <social.icon className="w-6 h-6" />
+                  <social.icon className="w-5 h-5 sm:w-6 sm:h-6" />
                 </a>
               ))}
             </motion.div>
@@ -179,13 +176,13 @@ const Hero = () => {
 
           {/* RIGHT IMAGE (5 Columns) */}
           <motion.div 
-            className="lg:col-span-5 relative flex justify-center lg:justify-start mt-12 lg:mt-0"
+            className="lg:col-span-5 relative flex justify-center lg:justify-start mt-8 md:mt-12 lg:mt-0"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             {/* Image Container with organic shape */}
-            <div className="relative w-[220px] h-[220px] md:w-[300px] md:h-[300px] lg:w-[350px] lg:h-[350px]">
+            <div className="relative w-[200px] h-[200px] sm:w-[240px] sm:h-[240px] md:w-[280px] md:h-[280px] lg:w-[320px] lg:h-[320px] xl:w-[350px] xl:h-[350px]">
               
               {/* Back Glow - Cyber Purple */}
               <div className="absolute inset-0 bg-gradient-to-tr from-primary-600 to-cyber-pink rounded-full blur-[60px] opacity-30 animate-pulse" />
@@ -206,24 +203,24 @@ const Hero = () => {
 
                {/* Decorative Elements - Floating Badges */}
                <motion.div 
-                 className="absolute -top-6 -right-6 w-24 h-24 bg-dark-card border border-primary-500/30 rounded-2xl glass flex items-center justify-center p-4 shadow-xl rotate-[15deg] z-20 group"
+                 className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-dark-card border border-primary-500/30 rounded-2xl glass flex items-center justify-center p-2 sm:p-3 md:p-4 shadow-xl rotate-[15deg] z-20 group"
                  whileHover={{ scale: 1.1, rotate: 0 }}
                  animate={{ y: [0, -10, 0] }}
                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                >
-                 <Code2 className="w-10 h-10 text-primary-400 drop-shadow-[0_0_10px_rgba(167,139,250,0.5)]" />
+                 <Code2 className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-primary-400 drop-shadow-[0_0_10px_rgba(167,139,250,0.5)]" />
                </motion.div>
 
                <motion.div 
-                 className="absolute -bottom-6 -left-6 glass px-6 py-4 rounded-xl border border-cyber-cyan/30 shadow-[0_0_20px_rgba(6,182,212,0.15)] z-20"
+                 className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 glass px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4 rounded-xl border border-cyber-cyan/30 shadow-[0_0_20px_rgba(6,182,212,0.15)] z-20"
                  whileHover={{ scale: 1.05 }}
                  animate={{ y: [0, 10, 0] }}
                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                >
-                 <div className="text-xs text-cyber-cyan font-bold uppercase tracking-wider mb-1 font-mono">Current Quest</div>
-                 <div className="text-white font-bold font-display flex items-center gap-2">
-                    <span className="w-2 h-2 bg-cyber-cyan rounded-full animate-pulse shadow-[0_0_8px_cyan]" />
-                    AI Agents & RAG
+                 <div className="text-[10px] sm:text-xs text-cyber-cyan font-bold uppercase tracking-wider mb-1 font-mono">Current Quest</div>
+                 <div className="text-sm sm:text-base text-white font-bold font-display flex items-center gap-1.5 sm:gap-2">
+                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-cyber-cyan rounded-full animate-pulse shadow-[0_0_8px_cyan]" />
+                    <span className="text-xs sm:text-sm md:text-base">AI Agents & RAG</span>
                  </div>
                </motion.div>
 

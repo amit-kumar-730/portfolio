@@ -73,9 +73,8 @@ const Contact = () => {
            transition={{ duration: 0.6 }}
            className="w-full flex flex-col items-center"
         >
-          <div className="text-center mb-16"
-          style={{padding:"15px"}}>
-            <h2 className="text-4xl md:text-5xl font-bold font-display mb-4">
+          <div className="text-center mb-12 md:mb-16 px-4" style={{ padding: '15px' }}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display mb-3 sm:mb-4">
               <span className="text-white">Initialize</span> <span className="gradient-text">Communication</span>
             </h2>
             <div className="flex items-center justify-center gap-4 text-xs font-mono text-cyber-cyan tracking-widest opacity-80">
@@ -89,8 +88,8 @@ const Contact = () => {
             {/* Terminal Window */}
             <TiltCard className="h-full w-full">
             <motion.div
-              className="rounded-3xl border border-white/10 relative overflow-hidden shadow-2xl bg-[#0a0a0a]"
-              style={{padding:"8px"}}
+              className="rounded-3xl border border-white/10 relative overflow-hidden shadow-2xl bg-[#0a0a0a] p-2 sm:p-4 md:p-6"
+              style={{ padding: '8px' }}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -104,18 +103,17 @@ const Contact = () => {
                   <div className="w-3 h-3 rounded-full bg-yellow-500/80 shadow-[0_0_8px_rgba(234,179,8,0.6)]" />
                   <div className="w-3 h-3 rounded-full bg-green-500/80 shadow-[0_0_8px_rgba(34,197,94,0.6)]" />
                 </div>
-                <div className="text-xs font-mono text-white/40 tracking-widest uppercase">Secured Uplink v2.0</div>
-                <Activity className="w-4 h-4 text-cyber-cyan opacity-50" />
+                <div className="text-[10px] sm:text-xs font-mono text-white/40 tracking-widest uppercase hidden sm:block">Secured Uplink v2.0</div>
+                <Activity className="w-4 h-4 text-cyber-cyan opacity-50 hidden sm:block" />
               </div>
 
-              <div className="p-8 md:p-12 relative">
+              <div className="p-4 sm:p-6 md:p-8 lg:p-12 relative">
                  
-                <form onSubmit={handleSubmit} className="space-y-8 md:space-y-10 relative z-10">
+                <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8 md:space-y-10 relative z-10">
                   <div className="grid md:grid-cols-2 gap-8 md:gap-10">
                     {/* Name */}
                     <div className="group relative">
-                      <label htmlFor="name" className="block text-xs font-bold font-mono text-cyber-cyan mb-3 ml-1 tracking-widest uppercase"
-                       style={{margin:"0px 0px 3px 5px" }}>Identity</label>
+                      <label htmlFor="name" className="block text-xs font-bold font-mono text-cyber-cyan mb-2 sm:mb-3 ml-0.5 sm:ml-1 tracking-widest uppercase" style={{ margin: '0px 0px 3px 5px' }}>Identity</label>
                       <input
                         type="text"
                         id="name"
@@ -123,8 +121,8 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-lg text-white font-mono focus:outline-none focus:border-cyber-cyan focus:bg-cyber-cyan/5 transition-all placeholder-white/20"
-                        style={{padding:"3px 5px 3px 10px" }}
+                        className="w-full px-3 sm:px-4 md:px-5 py-3 sm:py-3.5 md:py-4 bg-white/5 border border-white/10 rounded-lg text-white text-sm sm:text-base font-mono focus:outline-none focus:border-cyber-cyan focus:bg-cyber-cyan/5 transition-all placeholder-white/20"
+                        style={{ padding: '3px 5px 3px 10px' }}
                         placeholder="ENTER NAME"
                       />
                       <div className="absolute bottom-0 left-0 h-[1px] w-0 bg-cyber-cyan group-hover:w-full transition-all duration-500" />
@@ -132,8 +130,7 @@ const Contact = () => {
 
                     {/* Mobile No */}
                     <div className="group relative">
-                      <label htmlFor="phone" className="block text-xs font-bold font-mono text-cyber-cyan mb-3 ml-1 tracking-widest uppercase"
-                      style={{margin:"0px 0px 3px 5px" }}>Frequency</label>
+                      <label htmlFor="phone" className="block text-xs font-bold font-mono text-cyber-cyan mb-2 sm:mb-3 ml-0.5 sm:ml-1 tracking-widest uppercase" style={{ margin: '0px 0px 3px 5px' }}>Frequency</label>
                       <input
                         type="tel"
                         id="phone"
@@ -141,8 +138,8 @@ const Contact = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         required
-                        className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-lg text-white font-mono focus:outline-none focus:border-cyber-cyan focus:bg-cyber-cyan/5 transition-all placeholder-white/20"
-                        style={{padding:"3px 5px 3px 10px" }}
+                        className="w-full px-3 sm:px-4 md:px-5 py-3 sm:py-3.5 md:py-4 bg-white/5 border border-white/10 rounded-lg text-white text-sm sm:text-base font-mono focus:outline-none focus:border-cyber-cyan focus:bg-cyber-cyan/5 transition-all placeholder-white/20"
+                        style={{ padding: '3px 5px 3px 10px' }}
                         placeholder="+91..."
                       />
                        <div className="absolute bottom-0 left-0 h-[1px] w-0 bg-cyber-cyan group-hover:w-full transition-all duration-500" />
@@ -152,8 +149,7 @@ const Contact = () => {
                   <div className="grid md:grid-cols-2 gap-8 md:gap-10">
                     {/* Email */}
                     <div className="group relative">
-                      <label htmlFor="email" className="block text-xs font-bold font-mono text-cyber-cyan mb-3 ml-1 tracking-widest uppercase"
-                      style={{margin:"12px 0px 3px 5px" }}>Digital Coordinates</label>
+                      <label htmlFor="email" className="block text-xs font-bold font-mono text-cyber-cyan mb-2 sm:mb-3 ml-0.5 sm:ml-1 tracking-widest uppercase mt-3 sm:mt-4" style={{ margin: '12px 0px 3px 5px' }}>Digital Coordinates</label>
                       <input
                         type="email"
                         id="email"
@@ -161,8 +157,8 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                         className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-lg text-white font-mono focus:outline-none focus:border-cyber-cyan focus:bg-cyber-cyan/5 transition-all placeholder-white/20"
-                         style={{padding:"3px 5px 3px 10px" }}
+                         className="w-full px-3 sm:px-4 md:px-5 py-3 sm:py-3.5 md:py-4 bg-white/5 border border-white/10 rounded-lg text-white text-sm sm:text-base font-mono focus:outline-none focus:border-cyber-cyan focus:bg-cyber-cyan/5 transition-all placeholder-white/20"
+                         style={{ padding: '3px 5px 3px 10px' }}
                         placeholder="USER@EXAMPLE.COM"
                       />
                        <div className="absolute bottom-0 left-0 h-[1px] w-0 bg-cyber-cyan group-hover:w-full transition-all duration-500" />
@@ -170,8 +166,7 @@ const Contact = () => {
                     
                     {/* Subject */}
                     <div className="group relative">
-                      <label htmlFor="subject" className="block text-xs font-bold font-mono text-cyber-cyan mb-3 ml-1 tracking-widest uppercase"
-                      style={{margin:"12px 0px 3px 5px" }}>Subject Protocol</label>
+                      <label htmlFor="subject" className="block text-xs font-bold font-mono text-cyber-cyan mb-2 sm:mb-3 ml-0.5 sm:ml-1 tracking-widest uppercase mt-3 sm:mt-4" style={{ margin: '12px 0px 3px 5px' }}>Subject Protocol</label>
                       <input
                         type="text"
                         id="subject"
@@ -179,8 +174,8 @@ const Contact = () => {
                         value={formData.subject}
                         onChange={handleChange}
                         required
-                         className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-lg text-white font-mono focus:outline-none focus:border-cyber-cyan focus:bg-cyber-cyan/5 transition-all placeholder-white/20"
-                         style={{padding:"3px 5px 3px 10px" }}
+                         className="w-full px-3 sm:px-4 md:px-5 py-3 sm:py-3.5 md:py-4 bg-white/5 border border-white/10 rounded-lg text-white text-sm sm:text-base font-mono focus:outline-none focus:border-cyber-cyan focus:bg-cyber-cyan/5 transition-all placeholder-white/20"
+                         style={{ padding: '3px 5px 3px 10px' }}
                         placeholder="PROJECT INQUIRY"
                       />
                        <div className="absolute bottom-0 left-0 h-[1px] w-0 bg-cyber-cyan group-hover:w-full transition-all duration-500" />
@@ -189,8 +184,7 @@ const Contact = () => {
 
                   {/* Message */}
                   <div className="group relative">
-                    <label htmlFor="message" className="block text-xs font-bold font-mono text-cyber-cyan mb-3 ml-1 tracking-widest uppercase"
-                    style={{margin:"12px 0px 3px 5px" }}>Transmission Data</label>
+                    <label htmlFor="message" className="block text-xs font-bold font-mono text-cyber-cyan mb-2 sm:mb-3 ml-0.5 sm:ml-1 tracking-widest uppercase mt-3 sm:mt-4" style={{ margin: '12px 0px 3px 5px' }}>Transmission Data</label>
                     <textarea
                       id="message"
                       name="message"
@@ -198,21 +192,21 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       rows="6"
-                       className="w-full px-5 py-5 bg-white/5 border border-white/10 rounded-lg text-white font-mono focus:outline-none focus:border-cyber-cyan focus:bg-cyber-cyan/5 transition-all placeholder-white/20 resize-none leading-relaxed"
-                       style={{padding:"3px 5px 3px 10px" }}
+                       className="w-full px-3 sm:px-4 md:px-5 py-3 sm:py-4 md:py-5 bg-white/5 border border-white/10 rounded-lg text-white text-sm sm:text-base font-mono focus:outline-none focus:border-cyber-cyan focus:bg-cyber-cyan/5 transition-all placeholder-white/20 resize-none leading-relaxed"
+                       style={{ padding: '3px 5px 3px 10px' }}
                       placeholder="INITIATE MESSAGE STREAM..."
                     />
                      <div className="absolute bottom-0 left-0 h-[1px] w-0 bg-cyber-cyan group-hover:w-full transition-all duration-500" />
                   </div>
 
-                  <div className="flex justify-center pt-8">
+                  <div className="flex justify-center pt-4 sm:pt-6 md:pt-8">
                     <button
                         type="submit"
                         disabled={status === 'sending'}
-                        className="btn-primary w-full md:w-auto md:px-16 py-5 flex items-center justify-center gap-3 group rounded-none skew-x-[-10deg] border border-cyber-cyan/50 hover:bg-cyber-cyan/10 transition-all shadow-[0_0_30px_rgba(139,92,246,0.2)]"
-                        style={{margin:"10px 0px" }}
+                        className="btn-primary w-full md:w-auto md:px-12 lg:px-16 py-4 sm:py-4.5 md:py-5 flex items-center justify-center gap-2 sm:gap-3 group rounded-none skew-x-[-10deg] border border-cyber-cyan/50 hover:bg-cyber-cyan/10 transition-all shadow-[0_0_30px_rgba(139,92,246,0.2)] text-sm sm:text-base"
+                        style={{ margin: '10px 0px' }}
                     >
-                        <span className="skew-x-[10deg] flex items-center gap-3 font-bold font-display tracking-[0.2em] uppercase text-lg">
+                        <span className="skew-x-[10deg] flex items-center gap-2 sm:gap-3 font-bold font-display tracking-wider sm:tracking-[0.15em] md:tracking-[0.2em] uppercase text-base sm:text-lg">
                             <Terminal className="w-5 h-5" />
                             {status === 'sending' ? 'TRANSMITTING...' : 'EXECUTE TRANSMISSION'}
                             <Send className={`w-4 h-4 ${status === 'sending' ? 'animate-ping' : 'group-hover:translate-x-1 transition-transform'}`} />
@@ -221,12 +215,12 @@ const Contact = () => {
                   </div>
 
                   {status === 'success' && (
-                    <div className="p-4 bg-green-500/10 border border-green-500/20 text-green-400 text-sm text-center font-mono flex items-center justify-center gap-2">
+                    <div className="p-3 sm:p-4 bg-green-500/10 border border-green-500/20 text-green-400 text-xs sm:text-sm text-center font-mono flex items-center justify-center gap-2 rounded-lg">
                        <Wifi className="w-4 h-4" /> TRANSMISSION SUCCESSFUL
                     </div>
                   )}
                   {status === 'error' && (
-                    <div className="p-4 bg-red-500/10 border border-red-500/20 text-red-400 text-sm text-center font-mono flex items-center justify-center gap-2">
+                    <div className="p-3 sm:p-4 bg-red-500/10 border border-red-500/20 text-red-400 text-xs sm:text-sm text-center font-mono flex items-center justify-center gap-2 rounded-lg">
                       <Shield className="w-4 h-4" /> TRANSMISSION FAILED
                     </div>
                   )}

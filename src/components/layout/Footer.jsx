@@ -17,36 +17,35 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#020617] border-t-2 border-cyber-cyan/50 relative overflow-hidden"
-    style={{padding:"20px 0px" }}>
+    <footer className="bg-[#020617] border-t-2 border-cyber-cyan/50 relative overflow-hidden py-8 sm:py-12 md:py-16" style={{ padding: '20px 0px' }}>
       {/* Background Grid Accent */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0)_2px,transparent_2px),linear-gradient(90deg,rgba(0,0,0,0)_2px,transparent_2px)] bg-[size:30px_30px] opacity-10 pointer-events-none" />
 
       <div className="container-custom py-16 relative z-10">
-        <div className="grid md:grid-cols-4 gap-12 mb-12 border-b border-white/10 pb-12" style={{paddingBottom: '10px'}}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 md:gap-12 mb-8 sm:mb-10 md:mb-12 border-b border-white/10 pb-8 sm:pb-10 md:pb-12" style={{ paddingBottom: '10px' }}>
           {/* Column 1: Brand & Status */}
-          <div className="col-span-1 md:col-span-2 space-y-6">
+          <div className="col-span-1 sm:col-span-2 space-y-4 sm:space-y-5 md:space-y-6">
             <div>
-              <h3 className="text-3xl font-bold mb-2 font-display tracking-wider">
+              <h3 className="text-2xl sm:text-3xl font-bold mb-2 font-display tracking-wider">
                 <span className="text-white">AMIT</span> <span className="text-cyber-cyan">KUMAR</span>
               </h3>
-              <p className="text-dark-muted font-mono text-sm leading-relaxed max-w-md  pl-4">
+              <p className="text-dark-muted font-mono text-xs sm:text-sm leading-relaxed max-w-md pl-2 sm:pl-4">
                 "Initializing shutdown sequence... Memory fragments archived. Re-deployment ready on demand."
               </p>
             </div>
             
             <div className="flex items-center gap-4">
-               <div className="px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 flex items-center gap-2" style={{padding: '3px 7px'}}>
+               <div className="px-2 py-1 sm:px-3 sm:py-1 rounded-full bg-green-500/10 border border-green-500/20 flex items-center gap-1.5 sm:gap-2" style={{ padding: '3px 7px' }}>
                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                  <span className="text-xs font-mono text-green-400 ">SYSTEM STATUS: ONLINE</span>
                </div>
-               <div className="px-3 py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/20 flex items-center gap-2" style={{padding: '3px 7px'}}>
+               <div className="px-2 py-1 sm:px-3 sm:py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/20 flex items-center gap-1.5 sm:gap-2" style={{ padding: '3px 7px' }}>
                  <Cpu className="w-3 h-3 text-cyber-cyan" />
                  <span className="text-xs font-mono text-cyber-cyan">V 2.4.0</span>
                </div>
             </div>
 
-            <div className="flex gap-3 pt-2" style={{marginTop: '7px'}}>
+            <div className="flex gap-2 sm:gap-3 pt-2 mt-2 sm:mt-3" style={{ marginTop: '7px' }}>
               {socials.map((social) => {
                 const Icon = social.icon;
                 return (
@@ -55,7 +54,8 @@ const Footer = () => {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3   rounded-none skew-x-[-10deg] text-dark-muted hover:text-cyber-cyan hover:border-cyber-cyan hover:bg-cyber-cyan/10 transition-all"
+                    className="p-2 sm:p-3 rounded-none skew-x-[-10deg] text-dark-muted hover:text-cyber-cyan hover:border-cyber-cyan hover:bg-cyber-cyan/10 transition-all"
+                    style={{ padding: '10px' }}
                     whileHover={{ y: -4 }}
                     whileTap={{ scale: 0.95 }}
                     aria-label={social.name}
@@ -72,7 +72,7 @@ const Footer = () => {
             <h4 className="text-white font-bold font-display uppercase tracking-widest mb-6 flex items-center gap-2">
               <Zap className="w-4 h-4 text-cyber-cyan" /> Navigation Matrix
             </h4>
-            <ul className="space-y-3 font-mono text-sm" style={{paddingLeft: '15px'}}>
+            <ul className="space-y-2 sm:space-y-3 font-mono text-xs sm:text-sm pl-0 sm:pl-4 md:pl-8" style={{ paddingLeft: '15px' }}>
               {['Home', 'About', 'Skills', 'Projects', 'Achievements', 'Contact'].map((item) => (
                 <li key={item}>
                   <a

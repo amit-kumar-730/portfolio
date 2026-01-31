@@ -27,8 +27,8 @@ const About = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Text Content */}
             <motion.div
-              style={{ padding: '24px' }} // FORCE PADDING
-              className="relative rounded-3xl bg-white/5 border border-white/10 hover:border-cyber-cyan/30 transition-all duration-300 group overflow-hidden"
+              className="relative rounded-3xl bg-white/5 border border-white/10 hover:border-cyber-cyan/30 transition-all duration-300 group overflow-hidden p-4 sm:p-6 md:p-8"
+              style={{ padding: '24px' }}
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -79,7 +79,7 @@ const About = () => {
 
             {/* Real Cyber Tree Visualization */}
             <motion.div
-              className="relative flex items-center justify-center h-[600px] w-[120%] -mr-[20%] -my-20"
+              className="relative flex items-center justify-center h-[400px] sm:h-[500px] md:h-[600px] w-full md:w-[120%] md:-mr-[20%] -my-10 md:-my-20"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}

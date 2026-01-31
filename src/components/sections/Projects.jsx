@@ -9,7 +9,8 @@ const ProjectCard = ({ project, onClick }) => {
   return (
     <TiltCard className="h-full" >
     <motion.div
-      className="glass p-6 cursor-pointer group h-full flex flex-col border border-white/5 hover:border-primary-500/30 transition-all duration-300 relative overflow-hidden clickable rounded-xl" style={{ padding: '5px'}}
+      className="glass p-4 sm:p-5 md:p-6 cursor-pointer group h-full flex flex-col border border-white/5 hover:border-primary-500/30 transition-all duration-300 relative overflow-hidden clickable rounded-xl"
+      style={{ padding: '5px' }}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -56,10 +57,10 @@ const ProjectCard = ({ project, onClick }) => {
         </div>
       </div>
 
-      <div className="flex flex-col flex-grow relative z-10"  style={{marginTop: '5px'}}>
+      <div className="flex flex-col flex-grow relative z-10 mt-3 sm:mt-4" style={{ marginTop: '5px' }}>
         {/* Category Tag */}
-        <div className="flex items-center justify-between mb-2" >
-           <span className="text-[10px] text-primary-400 font-mono tracking-widest uppercase border border-primary-500/20 px-2 py-0.5 rounded-sm bg-primary-500/5"  style={{padding: '1px 3px'}}>
+        <div className="flex items-center justify-between mb-2">
+           <span className="text-[10px] text-primary-400 font-mono tracking-widest uppercase border border-primary-500/20 px-2 py-0.5 rounded-sm bg-primary-500/5" style={{ padding: '1px 3px' }}>
             {project.category}
           </span>
           <span className="text-[10px] text-white/30 font-mono">
@@ -68,7 +69,7 @@ const ProjectCard = ({ project, onClick }) => {
         </div>
 
         {/* Title */}
-        <h3 className="text-xl font-bold font-display text-white mb-3 group-hover:text-primary-400 transition-colors tracking-wide" >
+        <h3 className="text-lg sm:text-xl font-bold font-display text-white mb-2 sm:mb-3 group-hover:text-primary-400 transition-colors tracking-wide">
           {project.title}
         </h3>
 
@@ -78,29 +79,29 @@ const ProjectCard = ({ project, onClick }) => {
         </p>
 
         {/* Tech Stack Modules */}
-        <div className="flex flex-wrap gap-2 mb-4"  style={{marginBottom: '7px'}}>
+        <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4" style={{ marginBottom: '7px' }}>
           {project.tech.slice(0, 7).map((tech, index) => (
             <span
               key={index}
               className="text-[10px] px-2 py-1 bg-primary-500/10 border border-primary-500/20 text-primary-400 font-mono uppercase tracking-wider group-hover:bg-primary-500/20 group-hover:border-primary-500/40 transition-all rounded-sm shadow-[0_0_10px_rgba(139,92,246,0.1)]"
-               style={{padding: '1px 3px'}}
+              style={{ padding: '1px 3px' }}
             >
               {tech}
             </span>
           ))}
           {project.tech.length > 7 && (
-            <span className="text-[10px] px-2 py-1 bg-white/5 border border-white/10 text-white/50 font-mono rounded-sm hover:text-white transition-colors"  style={{padding: '1px 3px'}}>
+            <span className="text-[10px] px-2 py-1 bg-white/5 border border-white/10 text-white/50 font-mono rounded-sm hover:text-white transition-colors" style={{ padding: '1px 3px' }}>
               +{project.tech.length - 7}_MORE
             </span>
           )}
         </div>
 
         {/* Access Button */}
-        <div className="mt-auto pt-4 border-t border-white/5 flex items-center justify-between group/btn"  style={{padding: '5px 0px'}}>
+        <div className="mt-auto pt-3 sm:pt-4 border-t border-white/5 flex items-center justify-between group/btn" style={{ padding: '5px 0px' }}>
           <span className="text-white/40 font-mono text-xs group-hover:text-white transition-colors">
             STATUS: READY
           </span>
-          <div className="text-primary-400 font-bold font-mono text-xs flex items-center gap-2 group-hover/btn:tracking-widest transition-all">
+          <div className="text-primary-400 font-bold font-mono text-[10px] sm:text-xs flex items-center gap-1.5 sm:gap-2 group-hover/btn:tracking-widest transition-all">
             <span>{'>'} ACCESS_DATA</span>
             <ExternalLink className="w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />
           </div>
@@ -123,7 +124,7 @@ const ProjectModal = ({ project, onClose }) => {
       onClick={onClose}
     >
       <motion.div
-        className="glass max-w-4xl w-full max-h-[90vh] overflow-y-auto p-8 relative"
+        className="glass max-w-4xl w-full max-h-[90vh] overflow-y-auto p-4 sm:p-6 md:p-8 relative rounded-xl"
         initial={{ scale: 0.9, y: 20 }}
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.9, y: 20 }}

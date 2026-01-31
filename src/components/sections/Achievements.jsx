@@ -23,13 +23,12 @@ const Achievements = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold font-display mb-4"
-            style={{marginBottom: '10px'}}>
+          <div className="text-center mb-12 md:mb-16" style={{ marginBottom: '10px' }}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display mb-3 sm:mb-4">
               <span className="text-white">My</span> <span className="gradient-text">Achievement</span>
             </h2>
-            <p className="text-dark-muted text-lg max-w-2xl mx-auto font-mono flex items-center justify-center gap-2"
-            style={{paddingBottom: '10px', marginLeft: '-110px'}}>
+            <p className="text-sm sm:text-base md:text-lg text-dark-muted max-w-2xl mx-auto font-mono flex items-center flex-wrap justify-center gap-2 px-4"
+               style={{ paddingBottom: '10px', marginLeft: '-110px' }}>
               <Target className="w-4 h-4 text-cyber-cyan" />
               <span>Mission history and trophy collection</span>
               <Target className="w-4 h-4 text-cyber-cyan" />
@@ -58,7 +57,7 @@ const Achievements = () => {
                   
                   {/* Card Content */}
                   <div 
-                    className="flex flex-col h-full relative z-10"
+                    className="flex flex-col h-full relative z-10 p-4 sm:p-5 md:p-6"
                     style={{ padding: '8px' }}
                   >
                     
@@ -68,7 +67,7 @@ const Achievements = () => {
                         <div className={`absolute inset-0 blur opacity-20 ${achievement.color.replace('text', 'bg')}`} />
                         <Icon className="w-6 h-6 relative z-10" />
                       </div>
-                      <span className={`px-3 py-1 rounded text-[10px] font-mono font-bold border bg-dark-bg/80 backdrop-blur-md tracking-wider flex items-center gap-1.5 ${statusColor} shadow-sm`} style={{padding: '2px 4px'}} >
+                      <span className={`px-2 sm:px-3 py-1 rounded text-[10px] font-mono font-bold border bg-dark-bg/80 backdrop-blur-md tracking-wider flex items-center gap-1.5 ${statusColor} shadow-sm`} style={{ padding: '2px 4px' }}>
                          <span className={`w-1.5 h-1.5 rounded-full ${isOngoing ? 'animate-pulse bg-yellow-400' : 'bg-green-400'}`}/>
                          {statusText}
                       </span>
@@ -76,8 +75,7 @@ const Achievements = () => {
 
                     {/* Meta Info */}
                     <div className="mb-4" >
-                       <div className="flex items-center gap-2 mb-2 text-xs font-mono text-cyber-cyan/80 tracking-widest uppercase" >
-                         <span className="w-2 h-[1px] bg-cyber-cyan"  style={{padding: '10px 0px 10px 15px'}}/>
+                       <div className="flex items-center gap-2 mb-2 text-xs font-mono text-cyber-cyan/80 tracking-widest uppercase">
                          {achievement.category}
                        </div>
                        <h3 className="text-xl font-bold font-display text-white group-hover:text-cyber-cyan transition-colors leading-tight">
@@ -117,7 +115,7 @@ const Achievements = () => {
                     )}
 
                     {/* XP / Loot List */}
-                    <div className="mt-auto pt-4 border-t border-white/5 relative"  style={{padding: '10px 2px'}}>
+                    <div className="mt-auto pt-3 sm:pt-4 border-t border-white/5 relative" style={{ padding: '10px 2px' }}>
                       {/* Corner Accents */}
                       <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/20" />
                       <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/20" />
