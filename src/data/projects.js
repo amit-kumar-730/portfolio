@@ -79,7 +79,7 @@ export const projects = [
       "Role-based Access Control (RBAC)"
     ],
     github: "https://github.com/amitsauraurv/aarogyam",
-    demo: "https://aarogyam-demo.vercel.app",
+    demo: "https://aarogym.vercel.app/",
     images: ["/Aarogyam.png"],
     year: "2024"
   },

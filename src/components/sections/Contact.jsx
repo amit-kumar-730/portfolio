@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import emailjs from 'emailjs-com';
+import confetti from 'canvas-confetti';
 import { Send, Mail, MapPin, Phone, Terminal, Wifi, Shield, Activity } from 'lucide-react';
 import { personalInfo } from '../../data/personal.js';
 import TiltCard from '../ui/TiltCard';
@@ -26,11 +27,11 @@ const Contact = () => {
     e.preventDefault();
     setStatus('sending');
 
-    // EmailJS configuration (replace with your actual IDs)
+    // EmailJS configuration
     emailjs
       .send(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+        'service_vxle8hd', // EmailJS service ID
+        'template_o8b20yb', // EmailJS template ID
         {
           from_name: formData.name,
           from_email: formData.email,
@@ -39,12 +40,17 @@ const Contact = () => {
           message: formData.message,
           to_email: personalInfo.email,
         },
-        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+        'tP-_Xbj4XOCp3wCLj' // EmailJS public key
       )
       .then(
         () => {
           setStatus('success');
           setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+          confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+          });
           setTimeout(() => setStatus(''), 3000);
         },
         () => {
